@@ -41,7 +41,7 @@
 
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchText" accordion 
                             v-if="showInput" @keyup.enter="submitSearch">
-                            <button class="btn text-white border " type="submit">
+                            <button class="btn text-white" type="submit">
                                 <i class="fa-solid fa-magnifying-glass"
                                 v-if="!showInput" @click="toggleInput"></i>
                             </button>
