@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="container">
+        <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
@@ -97,6 +97,7 @@ header {
             a {
                 color: white;
                 text-decoration: none;
+                text-transform: uppercase;
             }
         }
     }
