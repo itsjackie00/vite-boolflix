@@ -19,12 +19,6 @@
 </script>
 
 <style lang="scss" scoped>
-.card{
-    text-align: center;
-    color: black;
-    background-color: #D48F38;
-    height: 520px;
-    border-radius: 0;
-}
+
 
 </style>
