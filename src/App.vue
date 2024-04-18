@@ -30,7 +30,7 @@ import MainComponente from './components/MainComponente.vue';
             return {
               id: movie.id,
               title: movie.title,
-              image: movie.imageUrl.poster_path,
+              image: movie.poster_path,
               flag: movie.original_language
             }
           })
