@@ -1,9 +1,11 @@
 <template>
     <div class="container-fluid">
         <h4 class="text-white p-3 "> Movies </h4>
-        <div class="row" id="card-container">
-            <div class="col-12 col-md-6 col-lg-3 " v-for="(movie, index) in store.movies" :key="index">
-                <CardComponent :id="movie.id" :title="movie.title" :image="movie.image" :flag="movie.flag" />
+        <div class="d-flex flex-wrap">
+            <div class="d-flex" id="card-container-top-10" ref="cardContainer">
+                <div v-for="(movie, index) in store.movies" :key="index">
+                    <CardComponent :id="movie.id" :image="movie.image" />
+                </div>
             </div>
         </div>
 
@@ -18,10 +20,12 @@
                 </div>
             </div>
 
-            <h4 class="text-white p-3 "> Tv Series </h4>
-            <div class="row" id="card-container">
-                <div class="col-12 col-md-6 col-lg-3 " v-for="(tv, index) in store.tv" :key="index">
-                    <CardComponent :id="tv.id" :title="tv.title" :image="tv.image" :flag="tv.flag" />
+            <div class="d-flex flex-column mt-5 " >
+                <h4 class="text-white p-3 "> Tv Series </h4>
+                <div class="d-flex" id="card-container-top-10" ref="cardContainer">
+                    <div v-for="(tv, index) in store.tv" :key="index">
+                        <CardComponent :id="tv.id" :title="tv.title" :image="tv.image" :flag="tv.flag" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,19 +65,6 @@ export default {
     margin-top: 1rem;
     scrollbar-width: none;
 
-    .card {
-        width: 200px;
-        height: 300px;
-        margin-top: 1rem;
-        display: inline-block;
-
-        img {
-            width: 150px;
-            height: 200px;
-            object-fit: cover;
-        }
-    }
-
     .big-number {
         font-size: 320px;
         margin-right: 20px;
@@ -84,5 +75,7 @@ export default {
         margin-right: -50px;
 
     }
+
+
 }
 </style>
