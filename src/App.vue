@@ -1,5 +1,6 @@
 <template>
  <HeaderComponent @searchResults="getMedia"/>
+ <Jumbotron />
  <MainComponente />
 </template>
 
@@ -8,6 +9,7 @@ import axios from 'axios';
 import {store} from './store';
 
 import HeaderComponent from './components/HeaderComponent.vue';
+import Jumbotron from './components/Jumbotron.vue';
 import MainComponente from './components/MainComponente.vue';
 
 
@@ -15,6 +17,7 @@ import MainComponente from './components/MainComponente.vue';
     name: 'App',
     components: {
       HeaderComponent,
+      Jumbotron,
       MainComponente
     },
     data () {
