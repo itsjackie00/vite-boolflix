@@ -5,7 +5,8 @@ export const store = reactive ({
     endPoint: {
         movie:'search/movie',
         tv: 'search/tv',
-        trending: 'trending/all/day?language=en-US'
+        trending: 'trending/all/day?language=en-US',
+        popular: 'movie/popular?language=en-US'
         
     },
     options: {
@@ -19,4 +20,5 @@ export const store = reactive ({
     movies: [],
     tv: [],
     trending: [],
+    popular: [],
 });
