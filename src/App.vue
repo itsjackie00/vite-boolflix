@@ -70,7 +70,20 @@ import MainComponente from './components/MainComponente.vue';
           })
           console.log(this.store);
         })
-      }
+      },
+      getPopular(){
+        axios.get(this.store.apiUrl + this.store.endPoint.popular, this.store.options).then
+        ((res) => {
+          this.store.popular = res.data.results.map((popular) => {
+            return {
+              id: popular.id,
+              title: popular.title, 
+              image: this.store.imageUrl + popular.poster_path,
+              flag: popular.original_language
+            }
+          })
+        })
+      },
     },
     created(){
       this.getMovies();
