@@ -27,6 +27,8 @@ import MainComponente from './components/MainComponente.vue';
        if(this.store.options.params.query) {
          this.getMovies();
          this.getTvSeries();
+         this.getTrending();
+         this.getPopular();
        } 
       },
       getMovies(){
@@ -89,6 +91,7 @@ import MainComponente from './components/MainComponente.vue';
       this.getMovies();
       this.getTvSeries();
       this.getTrending();
+      this.getPopular();
     }
   }
 </script>
