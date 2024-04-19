@@ -42,7 +42,8 @@ import MainComponente from './components/MainComponente.vue';
               id: movie.id,
               title: movie.title,
               image: this.store.imageUrl + movie.poster_path,
-              flag: movie.original_language
+              flag: movie.original_language,
+              vote:movie.vote_average
             }
           })
           //console.log(this.store);
