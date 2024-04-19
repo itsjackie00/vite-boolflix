@@ -40,7 +40,7 @@ import MainComponente from './components/MainComponente.vue';
               flag: movie.original_language
             }
           })
-          console.log(this.store);
+          //console.log(this.store);
         })
       },
       getTvSeries(){
@@ -54,14 +54,28 @@ import MainComponente from './components/MainComponente.vue';
               flag: tv.original_language
             }
           })
+          //console.log(this.store);
+        })
+      },
+      getTrending(){
+        axios.get(this.store.apiUrl + this.store.endPoint.trending, this.store.options).then
+        ((res) => {
+          this.store.trending = res.data.results.map((trending) => {
+            return {
+              id: trending.id,
+              title: trending.title,
+              image: this.store.imageUrl + trending.poster_path,
+              flag: trending.original_language
+            }
+          })
           console.log(this.store);
         })
       }
-
-      },
+    },
     created(){
       this.getMovies();
       this.getTvSeries();
+      this.getTrending();
     }
   }
 </script>
