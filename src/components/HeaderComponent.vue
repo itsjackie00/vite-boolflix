@@ -38,8 +38,9 @@
                             </li>
                         </ul>
                         <div class="d-flex" role="search" v-if="showInput">
-                            <input class="form-control bg-dark text-white " type="text" placeholder="Title, people, genres"
-                                v-model.trim="store.options.params.query" @keyup.enter="searchMedia">
+                            <input class="form-control bg-dark text-white " type="text"
+                                placeholder="Title, people, genres" v-model.trim="store.options.params.query"
+                                @keyup.enter="searchMedia">
                             <button class="btn text-white " type="submit" @click="searchMedia">
                                 <i class="fa-solid fa-magnifying-glass" v-if="showInput"></i>
                             </button>
@@ -49,10 +50,18 @@
                                 <i class="fa-solid fa-magnifying-glass" v-if="!showInput"></i>
                             </button>
                             <button class="btn text-white">
-                               Kids
+                                Kids
                             </button>
-                            <button class="btn text-white">
+                            <button class="btn text-white" @click="toggleNotDropdown">
                                 <i class="fa-regular fa-bell"></i>
+                                <div class="notification-dropdown">
+                                    <div v-if="showDropdown" class="notification-list">
+                                        <!-- Dropdown menu items here -->
+                                        <a class="dropdown-item" href="#">Notification 1</a>
+                                        <a class="dropdown-item" href="#">Notification 2</a>
+                                        <!-- Add more items as needed -->
+                                    </div>
+                                </div>
                             </button>
                             <button class="btn text-white">
                                 <i class="fa-regular fa-user"></i>
@@ -65,7 +74,6 @@
                 </div>
             </nav>
         </div>
-
     </header>
 </template>
 
@@ -78,14 +86,16 @@ export default {
         return {
             store,
             showInput: false,
-
+            showDropdown: false
         }
     },
 
     methods: {
         toggleInput() {
             this.showInput = !this.showInput
-
+        },
+        toggleNotDropdown() {
+            this.showDropdown = !this.showDropdown;
         },
         searchMedia() {
             if (!this.showInput) {
@@ -95,7 +105,6 @@ export default {
                 this.store.options.params.query = '';
             }
         }
-
     }
 }
 </script>
@@ -115,6 +124,17 @@ header {
     width: 100%;
     height: 100px;
     background-color: black;
+    position: fixed;
+    z-index: 999;
+
+    .notification-list {
+        position: absolute;
+        top: 90px;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background-color: black;
+    }
 
     ul {
         list-style: none;
@@ -139,10 +159,10 @@ header {
             transition: 0.5s;
         }
     }
-
     .fa-search {
         cursor: pointer;
     }
 
+    
 }
 </style>
