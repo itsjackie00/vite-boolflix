@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="container-fluid">
         <h4 class="text-white p-3 "> Movies </h4>
         <div class="row" id="card-container">
             <div class="col-12 col-md-6 col-lg-3 " v-for="(movie, index) in store.movies" :key="index">
@@ -7,18 +7,17 @@
             </div>
         </div>
 
-        <div class=" d-flex flex-wrap">
+        <div class=" d-flex flex-column">
             <h4 class="text-white p-3 "> Top 10 </h4>
-            <div id="card-container-top-10">
+            <div id="card-container-top-10" ref="cardContainer">
                 <div v-for="(trending, index) in store.trending.slice(0, 10)" :key="index">
                     <div class="d-flex">
-                        <h2 class="big-number">
-                            {{ index + 1 }}
-                        </h2>
+                        <h2 class="big-number">{{ index + 1 }} </h2>
                         <CardComponent :id="trending.id" :image="trending.image" />
                     </div>
                 </div>
             </div>
+
             <h4 class="text-white p-3 "> Tv Series </h4>
             <div class="row" id="card-container">
                 <div class="col-12 col-md-6 col-lg-3 " v-for="(tv, index) in store.tv" :key="index">
@@ -43,6 +42,9 @@ export default {
         return {
             store
         }
+    },
+    mounted() {
+        this.$refs.cardContainer.scrollLeft = 0;
     }
 }
 </script>
@@ -50,16 +52,20 @@ export default {
 <style lang="scss" scoped>
 #card-container-top-10 {
     display: flex;
+    overflow: auto;
+    white-space: nowrap;
     justify-content: center;
     align-items: center;
     gap: 4rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    scrollbar-width: none;
 
     .card {
         width: 200px;
         height: 300px;
         margin-top: 1rem;
+        display: inline-block;
 
         img {
             width: 150px;
