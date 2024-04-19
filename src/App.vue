@@ -54,8 +54,8 @@ import MainComponente from './components/MainComponente.vue';
 
       },
     created(){
-      this.getMovies();
-      this.getTvSeries();
+      //this.getMovies();
+      //this.getTvSeries();
     }
   }
 </script>
