@@ -3,8 +3,8 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <h1 class="text-danger text-uppercase">Boolflix</h1>
+                    <a class="navbar-brand" href="#" id="logo">
+                        <img src="/images/Netflix_Logo_PMS.png" alt="Netflix Logo">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -81,7 +81,11 @@ export default {
 .debug {
     border: 1px solid red;
 }
-
+#logo {
+    img {
+        width: 200px;
+    }
+}
 header {
     width: 100%;
     height: 100px;
