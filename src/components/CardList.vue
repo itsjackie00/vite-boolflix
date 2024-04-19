@@ -10,7 +10,7 @@
         </div>
 
         <div class=" d-flex flex-column">
-            <h4 class="text-white p-3 "> Top 10 </h4>
+            <h4 class="text-white p-3 "> Top 10 in Italy Today </h4>
             <div id="card-container-top-10" ref="cardContainer">
                 <div v-for="(trending, index) in store.trending.slice(0, 10)" :key="index">
                     <div class="d-flex">
@@ -19,13 +19,22 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="d-flex flex-column mt-5 " >
-                <h4 class="text-white p-3 "> Tv Series </h4>
-                <div class="d-flex" id="card-container-top-10" ref="cardContainer">
-                    <div v-for="(tv, index) in store.tv" :key="index">
-                        <CardComponent :id="tv.id" :title="tv.title" :image="tv.image" :flag="tv.flag" />
-                    </div>
+        <div class="d-flex flex-column mt-5 ">
+            <h4 class="text-white p-3 "> Tv Series </h4>
+            <div class="d-flex" id="card-container-top-10" ref="cardContainer">
+                <div v-for="(tv, index) in store.tv" :key="index">
+                    <CardComponent :id="tv.id" :title="tv.title" :image="tv.image" :flag="tv.flag" />
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column mt-5 ">
+            <h4 class="text-white p-3 "> Most Popular in Italy </h4>
+            <div class="d-flex" id="card-container-top-10" ref="cardContainer">
+                <div v-for="(popular, index) in store.popular" :key="index">
+                    <CardComponent :id="popular.id" :image="popular.image"/>
                 </div>
             </div>
         </div>
