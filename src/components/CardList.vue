@@ -4,12 +4,20 @@
         <div class="d-flex flex-wrap">
             <div class="d-flex" id="card-container-top-10" ref="cardContainer">
                 <div v-for="(movie, index) in store.movies" :key="index">
-                    <CardComponent :id="movie.id" :image="movie.image" />
+                    <CardComponentHover class="card-component" :id="movie.id" :image="movie.image" :title="movie.title" :flag="movie.flag" :vote="movie.vote"/>
                 </div>
             </div>
         </div>
 
-        <!-- <div class=" d-flex flex-column">
+        <div class="d-flex flex-wrap">
+            <div class="d-flex" id="card-container-top-10" ref="cardContainer">
+                <div v-for="(movie, index) in store.movies" :key="index">
+                    <CardComponent class="card-component" :id="movie.id" :image="movie.image" />
+                </div>
+            </div>
+        </div>
+
+        <div class=" d-flex flex-column">
             <h4 class="text-white p-3 "> Top 10 in Italy Today </h4>
             <div id="card-container-top-10" ref="cardContainer">
                 <div v-for="(trending, index) in store.trending.slice(0, 10)" :key="index">
@@ -19,18 +27,6 @@
                     </div>
                 </div>
             </div> 
-        </div>-->
-
-        <div class="d-flex flex-column">
-            <h4 class="text-white p-3 "> Top 10 in Italy Today </h4>
-            <div id="card-container-top-10">
-                <div v-for="(trending, index) in store.trending.slice(0, 10)" :key="index">
-                    <div class="d-flex">
-                        <h2 class="big-number">{{ index + 1 }} </h2>
-                        <CardComponent :id="trending.id" :image="trending.image" />
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="d-flex flex-column mt-5 ">
@@ -57,11 +53,13 @@
 import { store } from '../store';
 
 import CardComponent from './CardComponent.vue';
+import CardComponentHover from './CardComponentHover.vue';
 
 export default {
     name: 'CardList',
     components: {
-        CardComponent
+        CardComponent,
+        CardComponentHover
     },
     data() {
         return {
@@ -97,6 +95,11 @@ export default {
 
     }
 
+    .card-component :hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
 
 }
 </style>
