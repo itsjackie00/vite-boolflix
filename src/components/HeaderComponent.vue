@@ -38,15 +38,29 @@
                             </li>
                         </ul>
                         <div class="d-flex" role="search" v-if="showInput">
-                            <input class="form-control " type="text" placeholder="Search" 
+                            <input class="form-control " type="text" placeholder="Search"
                                 v-model.trim="store.options.params.query" @keyup.enter="searchMedia">
                             <button class="btn text-white bg-danger border " type="submit" @click="searchMedia">
                                 Search
                             </button>
                         </div>
-                        <button class="btn text-white" @click="toggleInput">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
+                        <div class="icons-container">
+                            <button class="btn text-white" @click="toggleInput">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <button class="btn text-white">
+                               Kids
+                            </button>
+                            <button class="btn text-white">
+                                <i class="fa-regular fa-bell"></i>
+                            </button>
+                            <button class="btn text-white">
+                                <i class="fa-regular fa-user"></i>
+                            </button>
+                            <button class="btn text-white">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -113,6 +127,16 @@ header {
                 text-decoration: none;
                 text-transform: uppercase;
             }
+
+            a:hover {
+                color: grey;
+            }
+
+        }
+
+        li:hover {
+            transform: scale(1.1);
+            transition: 0.5s;
         }
     }
 
