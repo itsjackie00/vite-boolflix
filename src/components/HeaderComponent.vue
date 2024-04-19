@@ -37,15 +37,14 @@
                                 </a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
-
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchText" accordion 
+                        <div class="d-flex" role="search">
+                            <input class="form-control " type="search" placeholder="Search" aria-label="Search" v-model="searchText" accordion 
                             v-if="showInput" @keyup.enter="submitSearch">
-                            <button class="btn text-white" type="submit">
+                            <button class="btn text-white" type="submit"  @click="toggleInput">
                                 <i class="fa-solid fa-magnifying-glass"
-                                v-if="!showInput" @click="toggleInput"></i>
-                            </button>
-                        </form>
+                                v-if="!showInput"></i>
+                            </button> 
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -72,7 +71,7 @@ export default {
         submitSearch() {
             console.log(`Searching for: ${this.searchText}`);
             this.toggleInput();
-        }
+        },
 
     }
 }

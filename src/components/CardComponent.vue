@@ -6,16 +6,31 @@
             <p class="card-text">
                 <span>{{ flag }}</span>
                 <br>
+                <span>{{ }}</span>
+                <br>
             </p>
         </div>
     </div>
 </template>
 
 <script>
+import { store } from '../store';
+
     export default {
         name: 'CardComponent',
-        props: ['id', 'title', 'image', 'flag']
+         props: ['id', 'title', 'image', 'flag', 'original_title'],
+         data () {
+             return {
+                 store
+             }
+         },
+         mounted () {
+             //console.log(this.id, this.title, this.image, this.flag, this.original_title);
+             //console.log(this.imageUrl);
+         }
     }
+    
+
 </script>
 
 <style lang="scss" scoped>
