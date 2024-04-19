@@ -5,6 +5,7 @@ export const store = reactive ({
     endPoint: {
         movie:'search/movie',
         tv: 'search/tv',
+        trending: 'trending/all/day?language=en-US'
         
     },
     options: {
@@ -17,4 +18,5 @@ export const store = reactive ({
     imageUrl: 'https://image.tmdb.org/t/p/original',
     movies: [],
     tv: [],
+    trending: [],
 });
