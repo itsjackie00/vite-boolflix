@@ -37,14 +37,16 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="d-flex" role="search">
-                            <input class="form-control " type="search" placeholder="Search" aria-label="Search" v-model="searchText" accordion 
-                            v-if="showInput" @keyup.enter="submitSearch">
-                            <button class="btn text-white" type="submit"  @click="toggleInput">
-                                <i class="fa-solid fa-magnifying-glass"
-                                v-if="!showInput"></i>
-                            </button> 
+                        <div class="d-flex" role="search" v-if="showInput">
+                            <input class="form-control " type="text" placeholder="Search" 
+                                v-model.trim="store.options.params.query" @keyup.enter="searchMedia">
+                            <button class="btn text-white bg-danger border " type="submit" @click="searchMedia">
+                                Search
+                            </button>
                         </div>
+                        <button class="btn text-white" @click="toggleInput">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -54,24 +56,31 @@
 </template>
 
 <script>
+import { store } from '../store';
+
 export default {
     name: 'HeaderComponent',
     data() {
         return {
+            store,
             showInput: false,
-            searchText: ''
+
         }
     },
 
     methods: {
         toggleInput() {
             this.showInput = !this.showInput
-            this.searchText = ''
+
         },
-        submitSearch() {
-            console.log(`Searching for: ${this.searchText}`);
-            this.toggleInput();
-        },
+        searchMedia() {
+            if (!this.showInput) {
+                this.toggleInput();
+            } else {
+                this.$emit('searchResults')
+                this.store.options.params.query = '';
+            }
+        }
 
     }
 }
@@ -81,11 +90,13 @@ export default {
 .debug {
     border: 1px solid red;
 }
+
 #logo {
     img {
         width: 200px;
     }
 }
+
 header {
     width: 100%;
     height: 100px;
