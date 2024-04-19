@@ -38,15 +38,15 @@
                             </li>
                         </ul>
                         <div class="d-flex" role="search" v-if="showInput">
-                            <input class="form-control " type="text" placeholder="Search"
+                            <input class="form-control bg-dark text-white " type="text" placeholder="Title, people, genres"
                                 v-model.trim="store.options.params.query" @keyup.enter="searchMedia">
-                            <button class="btn text-white bg-danger border " type="submit" @click="searchMedia">
-                                Search
+                            <button class="btn text-white " type="submit" @click="searchMedia">
+                                <i class="fa-solid fa-magnifying-glass" v-if="showInput"></i>
                             </button>
                         </div>
                         <div class="icons-container">
                             <button class="btn text-white" @click="toggleInput">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-magnifying-glass" v-if="!showInput"></i>
                             </button>
                             <button class="btn text-white">
                                Kids
