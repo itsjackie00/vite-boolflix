@@ -40,7 +40,15 @@ import MainComponente from './components/MainComponente.vue';
       getTvSeries(){
         axios.get(this.store.apiUrl + this.store.endPoint.tv, this.store.options).then 
         ((res) => {
-          //console.log(res.data.results);
+          this.store.tv = res.data.results.map((tv) => {
+            return {
+              id: tv.id,
+              title: tv.title,
+              image: this.store.imageUrl + tv.poster_path,
+              flag: tv.original_language
+            }
+          })
+          console.log(this.store);
         })
       }
 
