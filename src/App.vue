@@ -1,5 +1,5 @@
 <template>
- <HeaderComponent />
+ <HeaderComponent @searchResults="getMedia"/>
  <MainComponente />
 </template>
 
@@ -23,6 +23,12 @@ import MainComponente from './components/MainComponente.vue';
       }
     },
     methods: {
+      getMedia(){
+       if(this.store.options.params.query) {
+         this.getMovies();
+         this.getTvSeries();
+       } 
+      },
       getMovies(){
         axios.get(this.store.apiUrl + this.store.endPoint.movie, this.store.options).then 
         ((res) => {
@@ -54,8 +60,8 @@ import MainComponente from './components/MainComponente.vue';
 
       },
     created(){
-      //this.getMovies();
-      //this.getTvSeries();
+      this.getMovies();
+      this.getTvSeries();
     }
   }
 </script>
