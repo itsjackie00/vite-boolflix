@@ -1,14 +1,8 @@
 <template>
-    <div class="card mt-3">
-        <img :src="image" class="card-img-top" :alt="title">
+    <div class=" mt-3 d-flex ">
+        <img :src="image" class="img-top" :alt="title">
         <div class="card-body">
             <h5 class="card-title text-white ">{{ title }}</h5>
-            <p class="card-text">
-                <span>{{ flag }}</span>
-                <br>
-                <span>{{ }}</span>
-                <br>
-            </p>
         </div>
     </div>
 </template>
@@ -34,6 +28,13 @@ import { store } from '../store';
 </script>
 
 <style lang="scss" scoped>
+
+.img-top{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+
+}
 
 
 </style>
