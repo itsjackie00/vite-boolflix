@@ -1,5 +1,5 @@
 <template>
-    <div class=" mt-3 d-flex ">
+    <div class=" mt-3 d-flex">
         <img :src="image" class="img-top" :alt="title">
         <div class="card-body">
             <h5 class="card-title text-white ">{{ title }}</h5>
@@ -12,7 +12,7 @@ import { store } from '../store';
 
     export default {
         name: 'CardComponent',
-         props: ['id', 'title', 'image', 'flag', 'original_title'],
+         props: ['id', 'title', 'image', 'flag'],
          data () {
              return {
                  store
