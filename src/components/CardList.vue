@@ -1,17 +1,22 @@
 <template>
     <div class="container">
-        <h4 class="bg-dark text-white p-3 "> {{ }}</h4>
+        <h4 class="text-white p-3 "> Movies </h4>
         <div class="row" id="card-container">
             <div class="col-12 col-md-6 col-lg-3 " v-for="(movie, index) in store.movies" :key="index">
                 <CardComponent :id="movie.id" :title="movie.title" :image="movie.image" :flag="movie.flag" />
-
+            </div>
+            <h4 class="text-white p-3 "> Tv Series </h4>
+            <div class="row" id="card-container">
+                <div class="col-12 col-md-6 col-lg-3 " v-for="(tv, index) in store.tv" :key="index">
+                    <CardComponent :id="tv.id" :title="tv.title" :image="tv.image" :flag="tv.flag" />
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import {store} from '../store';
+import { store } from '../store';
 
 import CardComponent from './CardComponent.vue';
 
@@ -20,7 +25,7 @@ export default {
     components: {
         CardComponent
     },
-    data () {
+    data() {
         return {
             store
         }
@@ -28,6 +33,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
