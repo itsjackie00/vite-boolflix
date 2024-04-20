@@ -1,18 +1,21 @@
 <template>
     <div class="container-fluid">
         <h4 class="text-white p-3 "> Movies </h4>
-        <div class="d-flex flex-wrap">
+        <!-- <div class="d-flex flex-wrap card-component-hover" v-if="hover == index" >
             <div class="d-flex" id="card-container-top-10" ref="cardContainer">
                 <div v-for="(movie, index) in store.movies" :key="index">
                     <CardComponentHover class="card-component" :id="movie.id" :image="movie.image" :title="movie.title" :flag="movie.flag" :vote="movie.vote"/>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="d-flex flex-wrap">
             <div class="d-flex" id="card-container-top-10" ref="cardContainer">
                 <div v-for="(movie, index) in store.movies" :key="index">
-                    <CardComponent class="card-component" :id="movie.id" :image="movie.image" />
+                    <div class="card-component card-component-hover">
+                        <CardComponentHover :id="movie.id" :image="movie.image" :title="movie.title" :flag="movie.flag" :vote="movie.vote" v-if="hover == index" @mouseleave="hover = null"/>
+                    </div>
+                    <CardComponent class="card-component" :id="movie.id" :image="movie.image"  @mouseover="hover = index"   :style="{ display: hover === index ? 'block' : 'none' }"/>
                 </div>
             </div>
         </div>
@@ -63,7 +66,8 @@ export default {
     },
     data() {
         return {
-            store
+            store,
+            hover: null
         }
     },
     mounted() {
@@ -95,11 +99,18 @@ export default {
 
     }
 
-    .card-component :hover {
+    .card-component-hover :hover {
         cursor: pointer;
-        transform: scale(1.1);
-        transition: 0.5s;
+        transform: scale(1.005);
+        transition: all 0.5s;
     }
+
+    .card-component-hover {
+        position: absolute;
+        top: 1000;
+        z-index: 3000;
+    }
+    
 
 }
 </style>
