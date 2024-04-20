@@ -1,6 +1,6 @@
 <template>
     <div class=" mt-3 d-flex">
-        <img :src="image" class="img-top" :alt="title">
+        <img :src="flag" class="img-top" :alt="title">
         <div class="card-body">
             <h5 class="card-title text-white ">{{ title }}</h5>
         </div>

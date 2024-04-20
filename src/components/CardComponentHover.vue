@@ -1,10 +1,10 @@
 <template>
-    <div id="card2-hover" class="d-none">
+    <div id="card2-hover">
         <div class=" mt-3 d-flex card hover-container bg-dark ">
             <img :src="image" class="img-top-hover" :alt="title">
             <div class="card-body">
             </div>
-            <div class="icons-hover-container d-flex justify-content-between fs-4">
+            <div class="icons-hover-container d-flex justify-content-between fs-4 mt-1 m-2">
                 <div>
                     <button class="icons-hover bg-white ">
                         <i class="fa-solid fa-play "></i>
@@ -24,7 +24,10 @@
             </div>
             <div>
                 <span class="text-white mx-1">{{ title }}</span>
-                <span class="text-white mx-1">{{ flag }}</span>
+                <!-- <span class="text-white mx-1">https://flagsapi.com/{{ flag }}/flat/64.png</span> -->
+                <img :src="flag" alt="">
+                <span class="text-white mx-1">
+    </span>
                 <span class="text-white">{{ vote }}</span>
 
 
@@ -73,8 +76,5 @@ export default {
         border: 1px solid white;
     }
 
-    #card2-hover {
-        display: none;
-    }
 }
 </style>

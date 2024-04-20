@@ -71,9 +71,10 @@ import MainComponente from './components/MainComponente.vue';
               id: trending.id,
               title: trending.title,
               image: this.store.imageUrl + trending.poster_path,
-              flag: trending.original_language
+              flag: "https://flagsapi.com/" + trending.original_language.toUpperCase() + "/flat/64.png"
             }
           })
+          //console.log(this.store);
           console.log(this.store);
         })
       },

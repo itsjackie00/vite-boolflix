@@ -1,19 +1,11 @@
 <template>
     <div class="container-fluid">
         <h4 class="text-white p-3 "> Movies </h4>
-        <!-- <div class="d-flex flex-wrap card-component-hover" v-if="hover == index" >
-            <div class="d-flex" id="card-container-top-10" ref="cardContainer">
-                <div v-for="(movie, index) in store.movies" :key="index">
-                    <CardComponentHover class="card-component" :id="movie.id" :image="movie.image" :title="movie.title" :flag="movie.flag" :vote="movie.vote"/>
-                </div>
-            </div>
-        </div> -->
-
         <div class="d-flex flex-wrap">
             <div class="d-flex" id="card-container-top-10" ref="cardContainer">
                 <div v-for="(movie, index) in store.movies" :key="index">
                     <div class="card-component card-component-hover">
-                        <CardComponentHover :id="movie.id" :image="movie.image" :title="movie.title" :flag="movie.flag" :vote="movie.vote" v-if="hover == index" @mouseleave="hover = null"/>
+                        <CardComponentHover :id="movie.id" :image="movie.image" :title="movie.title" :flag="movie.flag" :vote="movie.vote"  @mouseleave="hover = null" />
                     </div>
                     <CardComponent class="card-component" :id="movie.id" :image="movie.image"  @mouseover="hover = index"   :style="{ display: hover === index ? 'block' : 'none' }"/>
                 </div>
