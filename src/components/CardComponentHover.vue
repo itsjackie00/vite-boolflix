@@ -23,10 +23,10 @@
                 </div>
             </div>
             <div>
-                <span class="text-white mx-1">{{ title }}</span>
-                <span class="text-white mx-1">{{ flag }}</span>
-                <img :src="flag" :alt="title">
+                <p class="text-white fs-5">{{ title }}</p>
+                <img :src="countryflagimg" class="flag m-2"> <br>
                 <span class="text-white">{{ vote }}</span>
+
 
 
             </div>
@@ -37,13 +37,15 @@
 <script>
 import { store } from '../store';
 
+
 export default {
     name: 'CardComponentHover',
-    props: ['id', 'title', 'image', 'flag', 'vote'],
+    props: ['id', 'title', 'image', 'flag', 'vote', 'countryflagimg'],
     data() {
         return {
             store
         }
+
     }
 }
 </script>
@@ -74,5 +76,8 @@ export default {
         border: 1px solid white;
     }
 
+    .flag {
+        width: 25px;
+    }
 }
 </style>
