@@ -119,7 +119,7 @@ import MainComponente from './components/MainComponente.vue';
               id: trending.id,
               title: trending.title,
               image: this.store.imageUrl + trending.poster_path,
-              flag: this.trending.original_language
+              flag: trending.original_language
             }
           })
           //console.log(this.store);
