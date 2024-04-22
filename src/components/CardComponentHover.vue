@@ -22,10 +22,13 @@
                     </button>
                 </div>
             </div>
-            <div>
+            <div class="m-2">
                 <p class="text-white fs-5">{{ title }}</p>
-                <img :src="countryflagimg" class="flag m-2"> <br>
-                <span class="text-white">{{ vote }}</span>
+                <span class="text-white">Original language</span>
+                <img :src="countryflagimg" class="flag m-2"> 
+                <div class="stars m-3 mb-5">
+                    <i :class="vote >= n ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star text-warning'" v-for="n in 5" :key="n" class="fa-star "></i>
+                </div>
 
 
 
@@ -45,7 +48,11 @@ export default {
         return {
             store
         }
-
+    },
+    computed: {
+        vote() {
+            return Math.ceil(this.vote / 2);
+        }
     }
 }
 </script>
@@ -74,6 +81,10 @@ export default {
         border-radius: 50%;
         margin-right: 10px;
         border: 1px solid white;
+
+        &:hover {
+            background-color: white;
+        }
     }
 
     .flag {
