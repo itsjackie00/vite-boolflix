@@ -22,7 +22,54 @@ import MainComponente from './components/MainComponente.vue';
     },
     data () {
       return {
-        store
+        store,
+        countries: [
+                {
+                    am: 'et',
+                    ar: 'sy',
+                    az: 'az',
+                    bn: 'bd',
+                    be: 'by',
+                    ca: 'es-ct',
+                    cs: 'cz',
+                    de: 'de',
+                    el: 'gr',
+                    en: 'gb',
+                    es: 'es',
+                    et: 'ee',
+                    fa: 'ir',
+                    fr: 'fr',
+                    bg: 'bg',
+                    ha: 'ne',
+                    hi: 'in',
+                    hu: 'hu',
+                    hy: 'am',
+                    it: 'it',
+                    id: 'id',
+                    ja: 'jp',
+                    jv: 'id',
+                    km: 'kh',
+                    ko: 'kr',
+                    lv: 'lv',
+                    mr: 'in',
+                    ms: 'my',
+                    nl: 'nl',
+                    pl: 'pl',
+                    pt: 'pt',
+                    ro: 'ro',
+                    ru: 'ru',
+                    sw: 'ke',
+                    ta: 'lk',
+                    te: 'in',
+                    th: 'th',
+                    tr: 'tr',
+                    uk: 'ua',
+                    uz: 'uz',
+                    vi: 'vn',
+                    zh: 'cn',
+                }
+              ]
+            
       }
     },
     methods: {
@@ -43,7 +90,8 @@ import MainComponente from './components/MainComponente.vue';
               title: movie.title,
               image: this.store.imageUrl + movie.poster_path,
               flag: movie.original_language,
-              vote:movie.vote_average
+              vote:movie.vote_average,
+              countryflags: 'https://flagcdn.com/16x12/' + this.countries[0][movie.original_language] + '.png'
             }
           })
           //console.log(this.store);
@@ -71,7 +119,7 @@ import MainComponente from './components/MainComponente.vue';
               id: trending.id,
               title: trending.title,
               image: this.store.imageUrl + trending.poster_path,
-              flag:   '/images/flags/' + trending.original_language + '.png'
+              flag: this.trending.original_language
             }
           })
           //console.log(this.store);
@@ -97,6 +145,9 @@ import MainComponente from './components/MainComponente.vue';
       this.getTvSeries();
       this.getTrending();
       this.getPopular();
+    },
+    mounted() {
+      console.log(this.countries[0]['am']);
     }
   }
 </script>
