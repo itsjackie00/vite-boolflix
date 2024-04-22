@@ -1,12 +1,11 @@
 <template>
     <div class="container-fluid">
-        <img src="/images/flags/it.png" alt="">
         <h4 class="text-white p-3 "> Movies </h4>
         <div class="d-flex flex-wrap">
             <div class="d-flex" id="card-container-top-10" ref="cardContainer">
                 <div v-for="(movie, index) in store.movies" :key="index">
                     <div class="card-component card-component-hover">
-                        <CardComponentHover :id="movie.id" :image="movie.image" :title="movie.title"  :vote="movie.vote" :countryflagimg="movie.countryflags"  @mouseleave="hover = null" />
+                        <CardComponentHover :id="movie.id" :image="movie.image" :title="movie.title"  :vote="movie.vote" :countryflagimg="movie.countryflags"  @mouseleave="hover = null" v-if="hover === index"/>
                     </div>
                     <CardComponent class="card-component" :id="movie.id" :image="movie.image"  @mouseover="hover = index"   :style="{ display: hover === index ? 'block' : 'none' }"/>
                 </div>
