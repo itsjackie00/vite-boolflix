@@ -24,10 +24,8 @@
             </div>
             <div>
                 <span class="text-white mx-1">{{ title }}</span>
-                <!-- <span class="text-white mx-1">https://flagsapi.com/{{ flag }}/flat/64.png</span> -->
-                <img :src="flag" alt="">
-                <span class="text-white mx-1">
-    </span>
+                <span class="text-white mx-1">{{ flag }}</span>
+                <img :src="flag" :alt="title">
                 <span class="text-white">{{ vote }}</span>
 
 

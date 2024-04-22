@@ -1,7 +1,8 @@
 <template>
     <div class=" mt-3 d-flex">
-        <img :src="flag" class="img-top" :alt="title">
+        <img :src="image" class="img-top" :alt="title">
         <div class="card-body">
+            <img src="../assets/img/" alt="">
             <h5 class="card-title text-white ">{{ title }}</h5>
         </div>
     </div>

@@ -1,5 +1,6 @@
 <template>
     <div class="container-fluid">
+        <img src="/images/flags/it.png" alt="">
         <h4 class="text-white p-3 "> Movies </h4>
         <div class="d-flex flex-wrap">
             <div class="d-flex" id="card-container-top-10" ref="cardContainer">
